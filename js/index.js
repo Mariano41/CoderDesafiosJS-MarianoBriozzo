@@ -8,14 +8,14 @@ const carrito = []
 //CLASES PARA PRODUCTOS
 
 class Producto {
-    constructor(id, nombre, importe, categoria) {
+    constructor(id, nombre, precio, categoria) {
         this.id = id
         this.nombre = nombre
-        this.importe = importe
+        this.precio = precio
         this.categoria = categoria
     }
     precioFinal() {
-        return parseFloat((this.importe * IVA).toFixed(2))
+        return parseFloat((this.precio * IVA).toFixed(2))
     }
 }
 
@@ -40,11 +40,13 @@ function generarCarrito() {
 generadorProdu()
 generarCarrito()
 
+//FUNCIONES 
+
 function agregarProdu() {
     let id = creoID()
     let nombre = prompt("Ingresa el nombre del producto:")
-    let importe = parseFloat(prompt("Ingresa el precio del producto:"))
-    const prod = {id: id, nombre: nombre, importe: importe}
+    let precio = parseFloat(prompt("Ingresa el precio del producto:"))
+    const prod = {id: id, nombre: nombre, precio: precio}
         produ.push(prod)
         console.table(produ)
 }
@@ -71,3 +73,43 @@ function filtrarProdu() {
         console.table(resultado)
 }
 
+function existeProducto() {
+    let codigo = parseInt(prompt("Ingrese el codigo (o ID) del producto:"))
+    let existe = produ.some((producto)=> producto.id === codigo) 
+            if (existe) {
+            console.log("El código ingresado sí existe") 
+        } else {
+            console.warn("No se encontró ningun producto con ese código")
+        }
+} 
+
+function calcularCarrito() {
+    let total = carrito.reduce((acumulador, producto)=>  acumulador + producto.precio, 0)
+        console.log("Total del carrito:", total)
+        
+let cuotas = parseInt(prompt("Ingrese cantidad de cuotas entre 1 y 12"))
+let result1 = total / cuotas
+let result2 = total * 1.25 / cuotas
+let result3 = total * 1.50 / cuotas
+
+if (cuotas <= 3){
+
+alert("Su pago es de "+cuotas+" cuotas a $"+result1.toFixed(2))
+
+} else if (cuotas >= 4 && cuotas <= 6){
+
+alert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2))
+
+} else if (cuotas >= 7 && cuotas <= 12){
+
+alert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2))
+
+}else if (cuotas > 12){
+
+alert("Cantidad de cuotas no validas")
+
+}else{
+
+}
+
+}
