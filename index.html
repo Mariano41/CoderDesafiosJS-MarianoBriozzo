@@ -6,17 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1er Pre entrega</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
     <script defer src="js/index.js"></script>
 </head>
 <body>
-    <h1>Productos</h1>
+    <article >
+        <h1 id="titulo"><b> Productos</b></h1>
+        <p id="parrafo"><u> Listado de productos disponibles:</u></p>
+        <input type="search" id="filtroProducto" placeholder="Ingresa que estas buscando">
+        <table>
+            <thead >
+               
+                <tr>
+                    <th class="Border">ID</th>
+                    <th class="Border">PRODUCTO</th>
+                    <th class="Border">PRECIO</th>
+                    <th class="Border">PRECIO FINAL</th>
+                </tr>
+            
+            </thead>
+            <tbody id="tabla">
 
-    <br>
-
-    <button>Guitarras</button><br>
-    <button>Accesorios</button><br>
-    <button>Buscar producto</button><br>
-    <button>Listar Productos</button>
-
+            </tbody>
+        </table>
+<footer>
+    <button onclick="listarProductos()">LISTAR PRODUCTOS</button>
+    <button onclick="agregarProducto()">AGREGAR PRODUCTO</button>
+</footer>
 </body>
 </html>

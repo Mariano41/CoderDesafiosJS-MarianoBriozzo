@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+*{
+	padding: 10px;
+	margin: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: double;
+}
+
+.Border{
+	border-style: groove;
+	border-width: thin;
+	border-width: 2px;
+}	

@@ -93,23 +93,30 @@ let result2 = total * 1.25 / cuotas
 let result3 = total * 1.50 / cuotas
 
 if (cuotas <= 3){
-
 alert("Su pago es de "+cuotas+" cuotas a $"+result1.toFixed(2))
-
 } else if (cuotas >= 4 && cuotas <= 6){
-
 alert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2))
-
 } else if (cuotas >= 7 && cuotas <= 12){
-
 alert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2))
-
 }else if (cuotas > 12){
-
 alert("Cantidad de cuotas no validas")
-
 }else{
 
 }
-
 }
+
+//DOM
+
+function cargarProductos() {
+    let fila = ""
+        produ.forEach(producto => {
+            fila = `<tr>
+                        <td>${producto.id}</td>
+                        <td>${producto.nombre}</td>
+                        <td>${producto.precio}</td>
+                        <td>${producto.precioFinal()}</td>
+                    </tr>`
+                    tabla.innerHTML += fila
+        })
+    } 
+    cargarProductos()
