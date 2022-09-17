@@ -17,3 +17,8 @@ body {
 	border-width: thin;
 	border-width: 2px;
 }	
+
+.foco {
+    border-color: crimson !important;
+    background-color: #f9fcdc !important;
+}

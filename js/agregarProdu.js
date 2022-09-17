@@ -4,4 +4,15 @@ function enviar(){
     alert("Producto agregado al stock")
 }
 
-agregar.addEventListener("click", enviar)
+agregar.addEventListener("click", ()=> {
+    enviar()
+})
+
+const inputs = document.querySelectorAll("input")
+inputs.forEach(input => {
+    input.addEventListener("focus", ()=> input.className = "foco")
+    input.addEventListener("blur", ()=> input.className = "")
+    input.addEventListener("mousemove", ()=> input.title = "Ingrese aqui el parametro correspondiente")
+}) 
+
+agregar.addEventListener("mousemove", ()=> agregar.title = "Haga click para agregar producto")
