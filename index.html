@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/index.js"></script>
+   
 </head>
 <body>
     <article >
         <h1 id="titulo"><b> Productos</b></h1>
         <p id="parrafo"><u> Listado de productos disponibles:</u></p>
-        <input type="search" id="filtroProducto" placeholder="Ingresa que estas buscando">
+        <div>
+            <span><input type="search" id="filtroProducto" placeholder="Ingresa parte del nombre del producto a buscar"></span>
+        </div>
         <table>
             <thead >
                
@@ -22,6 +25,7 @@
                     <th class="Border">PRODUCTO</th>
                     <th class="Border">PRECIO</th>
                     <th class="Border">PRECIO FINAL</th>
+                    <th class="Border">AGREGAR</th>
                 </tr>
             
             </thead>
@@ -30,10 +34,17 @@
             </tbody>
         </table>
 <footer>
-    <button onclick="listarProductos()">LISTAR PRODUCTOS</button>
-        <a href="agregarProdu.html">
-            <button onclick="agregarProducto()">AGREGAR PRODUCTO</button>
-        </a>
+    <a href="carrito.html">
+        <button class="boton">CARRITO</button>
+    </a>
+
+    <a href="agregarProdu.html">
+         <button class="boton" onclick="agregarProducto()">AGREGAR PRODUCTO</button>
+    </a>
+
+    <a href="contacto.html">
+        <button class="boton">CONTACTO</button>
+   </a>
 </footer>
 </body>
 </html>

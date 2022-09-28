@@ -3,7 +3,7 @@
 const IVA = 1.21
 const creoID = ()=> parseInt(Math.random() * 1000000)
 const produ = [] 
-const carrito = []
+let carrito = []
 
 //CLASES PARA PRODUCTOS
 
@@ -31,14 +31,15 @@ function generadorProdu() {
     produ.push(new Producto(775850, "CUERDAS", 1500, "ACCESORIO"))
 }
 
-function generarCarrito() {
-    carrito.push(new Producto(899656, "GUITARRA ELECTRICA", 50000, "GUITARRA"))
-    carrito.push(new Producto(325326, "FUNDA", 4000, "ACCESORIO"))
-    carrito.push(new Producto(775850, "CUERDAS", 1500, "ACCESORIO"))
-}
+// function generarCarrito() {
+//     carrito.push(new Producto(899656, "GUITARRA ELECTRICA", 50000, "GUITARRA"))
+//     carrito.push(new Producto(325326, "FUNDA", 4000, "ACCESORIO"))
+//     carrito.push(new Producto(775850, "CUERDAS", 1500, "ACCESORIO"))
+// }
 
+// generarCarrito()
 generadorProdu()
-generarCarrito()
+
 
 //FUNCIONES 
 
@@ -67,11 +68,11 @@ function buscarProdu() {
     }
 }
 
-function filtrarProdu() {
-    let filtro = prompt("Ingresa un filtro de lo que estas buscando:")
-    let resultado = produ.filter((producto) => producto.nombre.includes(filtro))
-        console.table(resultado)
-}
+// function filtrarProdu() {
+//     let filtro = prompt("Ingresa un filtro de lo que estas buscando:")
+//     let resultado = produ.filter((producto) => producto.nombre.includes(filtro))
+//         console.table(resultado)
+// }
 
 function existeProducto() {
     let codigo = parseInt(prompt("Ingrese el codigo (o ID) del producto:"))
@@ -107,16 +108,66 @@ alert("Cantidad de cuotas no validas")
 
 //DOM
 
-function cargarProductos() {
+function cargarProductos(array) {
     let fila = ""
-        produ.forEach(producto => {
+    tabla.innerHTML = ""
+        array.forEach(producto => {
             fila = `<tr>
                         <td>${producto.id}</td>
                         <td>${producto.nombre}</td>
                         <td>${producto.precio}</td>
                         <td>${producto.precioFinal()}</td>
+                        <td><button id="btn${producto.id}">+</button></td>
                     </tr>`
                     tabla.innerHTML += fila
         })
     } 
-    cargarProductos()
+    cargarProductos(produ)
+
+    
+
+    const inputFiltrar = document.querySelector("input")
+
+    function filtrarProductos() { 
+        inputFiltrar.value = inputFiltrar.value.trim().toUpperCase()
+        if (inputFiltrar.value !== "") {
+            const resultado = produ.filter(producto => producto.nombre.includes(inputFiltrar.value))
+                  if (resultado.length === 0) {
+                    console.clear()
+                    console.warn("No se encontraron productos.")
+                    cargarProductos(produ)
+                  } else {
+                    cargarProductos(resultado)
+                  }
+        } else {
+            cargarProductos(produ)
+        }
+    }
+    
+    inputFiltrar.addEventListener("input", filtrarProductos) 
+
+    function eventoEnBotones() {
+        produ.forEach(prod => {
+            const btn = document.querySelector(`#btn${prod.id}`)
+                  btn.addEventListener("click", ()=> agregarAlCarrito(`${prod.id}`))
+        })
+    }
+    eventoEnBotones()
+
+    function agregarAlCarrito(id) {
+        const producto = produ.find(prod => prod.id == id)
+        carrito.push(producto)
+        console.table(carrito)
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+    }
+
+    //Carrito
+
+    function recuperarCarrito() {
+        if (localStorage.getItem("carrito")) {
+            carrito = JSON.parse(localStorage.getItem("carrito"))
+        }
+    }
+    recuperarCarrito()
+    
+    
