@@ -1,9 +1,4 @@
-//VARIABLES
 
-const IVA = 1.21
-const creoID = ()=> parseInt(Math.random() * 1000000)
-const produ = [] 
-let carrito = []
 
 //CLASES PARA PRODUCTOS
 
@@ -189,7 +184,7 @@ alert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2))
 } else if (cuotas >= 7 && cuotas <= 12){
 alert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2))
 }else {
-alert("Cantidad de cuotas no validas")
+alert("⛔Cantidad de cuotas no validas⛔")
 }
 }
 
