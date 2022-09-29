@@ -1,3 +1,5 @@
+
+
 function recuperoCarrito() {
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     let tabla = document.querySelector("tbody")
