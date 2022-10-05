@@ -28,13 +28,13 @@ let result2 = total * 1.25 / cuotas
 let result3 = total * 1.50 / cuotas
 
 if (cuotas >= 1 && cuotas <= 3){
-alert("Su pago es de "+cuotas+" cuotas a $"+result1.toFixed(2))
+    swalert("Su pago es de "+cuotas+" cuotas a $"+result1.toFixed(2), "info")
 } else if (cuotas >= 4 && cuotas <= 6){
-alert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2))
+    swalert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2), "info")
 } else if (cuotas >= 7 && cuotas <= 12){
-alert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2))
+    swalert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2), "info")
 }else {
-alert("⛔Cantidad de cuotas no validas⛔")
+    swalert("⛔Cantidad de cuotas no validas⛔", "error")
 }
 }
 
@@ -42,6 +42,26 @@ alert("⛔Cantidad de cuotas no validas⛔")
 cotizar.addEventListener("click", ()=> {
     cotizo()
 })
+
+
+//LIBRERIAS SWEET ALERT
+
+const swalert = (mensaje, icono)=> {
+    Swal.fire({
+        icon: icono,
+        title: mensaje,
+        width: "80%",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          },
+    })
+} 
+
+
+
 
 // function eventoEnBotones() {
 //     produ.forEach(prod => {
