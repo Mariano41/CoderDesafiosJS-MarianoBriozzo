@@ -23,3 +23,7 @@ body {
     background-color: #f9fcdc !important;
 }
 
+
+.ocultar {
+    display: none;
+}

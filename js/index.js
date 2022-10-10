@@ -168,9 +168,16 @@ function cargarProductos(array) {
 
 const cotizar = document.querySelector("#cotizar")
 
+const load = document.querySelector("#load")
+
+const loading = ()=> swalerttwo(`<img src="images/load.gif" alt="loading" width="70px">`)
+
 function cotizo(){
-    let total = carrito.reduce((acumulador, producto)=>  acumulador + producto.precio, 0)
-        console.log("Total del carrito:", total)
+    load.innerHTML = loading() 
+    setTimeout(() => {
+
+let total = carrito.reduce((acumulador, producto)=>  acumulador + producto.precio, 0)
+    console.log("Total del carrito:", total)
         
 let cuotas = parseInt(prompt("Ingrese cantidad de cuotas entre 1 y 12"))
 let result1 = total / cuotas
@@ -186,10 +193,14 @@ if (cuotas >= 1 && cuotas <= 3){
 }else {
     swalert("⛔Cantidad de cuotas no validas⛔", "error")
 }
+    }, 2000);
+
+
 }
 
 
 cotizar.addEventListener("click", ()=> {
+    
     cotizo()
 })
 
@@ -199,6 +210,7 @@ const swalert = (mensaje, icono)=> {
     Swal.fire({
         icon: icono,
         title: mensaje,
+        padding: "5rem",
         width: "80%",
         showClass: {
             popup: 'animate__animated animate__fadeInDown'
@@ -209,3 +221,14 @@ const swalert = (mensaje, icono)=> {
     })
 } 
 
+const swalerttwo = ()=>{
+    Swal.fire({
+    title: 'Wait please...',
+    imageUrl: 'images/load.gif',
+    showConfirmButton: false,
+    width: "80%",
+    padding: "5rem",
+    allowOutsideClick: false,
+    timer: 1900
+})
+}
