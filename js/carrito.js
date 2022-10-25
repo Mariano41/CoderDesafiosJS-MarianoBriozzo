@@ -26,26 +26,24 @@ function cotizo(){
     load.innerHTML = loading() 
     setTimeout(() => {
 
-let total = carrito.reduce((acumulador, producto)=>  acumulador + producto.precio, 0)
-    console.log("Total del carrito:", total)
-        
-let cuotas = parseInt(prompt("Ingrese cantidad de cuotas entre 1 y 12"))
-let result1 = total / cuotas
-let result2 = total * 1.25 / cuotas
-let result3 = total * 1.50 / cuotas
+    let total = carrito.reduce((acumulador, producto)=>  acumulador + producto.precio, 0)
+        console.log("Total del carrito:", total)
+            
+    let cuotas = parseInt(prompt("Ingrese cantidad de cuotas entre 1 y 12"))
+    let result1 = total / cuotas
+    let result2 = total * 1.25 / cuotas
+    let result3 = total * 1.50 / cuotas
 
-if (cuotas >= 1 && cuotas <= 3){
-    swalert("Su pago es de "+cuotas+" cuotas a $"+result1.toFixed(2), "info")
-} else if (cuotas >= 4 && cuotas <= 6){
-    swalert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2), "info")
-} else if (cuotas >= 7 && cuotas <= 12){
-    swalert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2), "info")
-}else {
-    swalert("⛔Cantidad de cuotas no validas⛔", "error")
-}
-    }, 2000);
-
-
+    if (cuotas >= 1 && cuotas <= 3){
+        swalert("Su pago es de "+cuotas+" cuotas a $"+result1.toFixed(2), "info")
+    } else if (cuotas >= 4 && cuotas <= 6){
+        swalert("Su pago es de "+cuotas+" cuotas a $"+result2.toFixed(2), "info")
+    } else if (cuotas >= 7 && cuotas <= 12){
+        swalert("Su pago es de "+cuotas+" cuotas a $"+result3.toFixed(2), "info")
+    }else {
+        swalert("⛔Cantidad de cuotas no validas⛔", "error")
+    }
+        }, 2000);
 }
 
 
@@ -83,6 +81,12 @@ const swalerttwo = ()=>{
 })
 }
 
+const precioTotal = ()=> {
+    let total = carrito.reduce((acumulador, producto)=>  acumulador + producto.precio, 0)
+    preciototal.innerHTML = total
+}
+
+precioTotal()
 
 
 // function eventoEnBotones() {
