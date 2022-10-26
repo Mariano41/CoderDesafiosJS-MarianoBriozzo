@@ -1,0 +1,45 @@
+[
+    {
+        "id": 899656,
+        "nombre": "GUITARRA ELECTRICA",
+        "precio": 50000,
+        "categoria": "GUITARRA"
+    },
+    {
+        "id": 566988,
+        "nombre": "GUITARRA CRIOLLA",
+        "precio": 25000,
+        "categoria": "GUITARRA"
+    },
+    {
+        "id": 774554,
+        "nombre": "GUITARRA ELECTRO ACUSTICA",
+        "precio": 30000,
+        "categoria": "GUITARRA"
+    },
+
+    {
+        "id": 325326,
+        "nombre": "FUNDA",
+        "precio": 4000,
+        "categoria": "ACCESORIO"
+    },
+    {
+        "id": 201254,
+        "nombre": "AFINADOR",
+        "precio": 1000,
+        "categoria": "ACCESORIO"
+    },
+    {
+        "id": 980506,
+        "nombre": "PUAS",
+        "precio": 900,
+        "categoria": "ACCESORIO"
+    },
+    {
+        "id": 775850,
+        "nombre": "CUERDAS",
+        "precio": 1500,
+        "categoria": "ACCESORIO"
+    }
+]

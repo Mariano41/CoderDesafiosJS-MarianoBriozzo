@@ -26,13 +26,6 @@ function generadorProdu() {
     produ.push(new Producto(775850, "CUERDAS", 1500, "ACCESORIO"))
 }
 
-// function generarCarrito() {
-//     carrito.push(new Producto(899656, "GUITARRA ELECTRICA", 50000, "GUITARRA"))
-//     carrito.push(new Producto(325326, "FUNDA", 4000, "ACCESORIO"))
-//     carrito.push(new Producto(775850, "CUERDAS", 1500, "ACCESORIO"))
-// }
-
-// generarCarrito()
 generadorProdu()
 
 
@@ -62,12 +55,6 @@ function buscarProdu() {
              console.log(resultado)
     }
 }
-
-// function filtrarProdu() {
-//     let filtro = prompt("Ingresa un filtro de lo que estas buscando:")
-//     let resultado = produ.filter((producto) => producto.nombre.includes(filtro))
-//         console.table(resultado)
-// }
 
 function existeProducto() {
     let codigo = parseInt(prompt("Ingrese el codigo (o ID) del producto:"))
